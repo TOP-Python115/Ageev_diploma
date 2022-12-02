@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  {% block title %}<title>Элеватор</title>{% endblock %}
+  {% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+{% block sidebar %}<li><a href="{% url 'index' %}">Home</a></li>{% endblock %}
+  {% block content %}
+
+{% endblock %}
+</body>
+</html>

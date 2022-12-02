@@ -1,3 +1,13 @@
 from django.db import models
+from django.urls import reverse
 
-# Create your models here.
+
+class Wheat(models.Model):
+
+    id = models.AutoField(primary_key=True)
+    weight = models.FloatField()
+    date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.id} /{self.weight} /{self.date}'
+

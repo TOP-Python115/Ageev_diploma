@@ -21,14 +21,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
-urlpatterns += [
-    path('data/', include('data.urls')),
-]
+                      path('admin/', admin.site.urls),
+                      path('data/', include('data.urls')),
 
-urlpatterns += [
-    path('', RedirectView.as_view(url='data/', permanent=True)),
-]
+                  ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# path('', RedirectView.as_view(url='data/')),
