@@ -1,6 +1,26 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Сколько пришло сегодня</h1>
-<p>{{todey}}</p>
+<div class="body">
+        <div class="demo_wrap">
+            {% load static %}
+            <img class="myClass" src="{% static 'images/article96673.jpg' %}">
+        </div>
+    <div class="bloc">
+        <h1>Добавить зерно</h1>
+        <button class="buto">Добавить</button>
+    </div>
+    <div class="bloc">
+    <h1>Сколько пришло<br> сегодня:</h1>
+    <button class="buto">Узнать</button>
+    </div>
+    <div class="bloc">
+        <h1>Сколько пришло <br> за неделю:</h1>
+        <button class="buto">Узнать</button>
+        </div>
+    <div class="bloc">
+        <h1>Сколько пришло<br> за месяц:</h1>
+        <button class="buto">Узнать</button>
+    </div>
+</div>
 {% endblock %}
