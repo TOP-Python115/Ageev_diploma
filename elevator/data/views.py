@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import Wheat
 from datetime import datetime
 from django.db.models import Sum
+#from django.contrib.auth.decorators import login_required
 
+#@login_required
 def index(request):
     todey = Wheat.objects.filter(date=datetime.now()).aggregate(Sum('weight'))
     for key, value in todey.items():

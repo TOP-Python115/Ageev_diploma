@@ -13,7 +13,9 @@ body{
     width: 100%;
     height: 100%;
     opacity: 0.3;
-}
+    z-index: -1;
+    }
+
 .body {
 
   display: flex;
@@ -41,3 +43,87 @@ button {
   background-color: rgb(152, 147, 147);
   border-radius: 10px;
 }
+
+.sidebar {
+
+    float: left;
+
+    background-color: rgb(125, 136, 84);
+    height: 150px;
+    padding-right: 20px;
+  }
+
+.sidebar li {
+
+    list-style-type: none;
+}
+.aft {
+    background-color: rgb(125, 136, 84);
+    border: solid 5px grey;
+    padding: 12px;
+    display: block;
+    position: relative;
+    margin-top: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    width:400px;
+    height: 200px;
+    text-align: center;
+
+}
+table {
+    display: block;
+    position: relative;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.vosk {
+
+    position: relative;
+    float: right;
+    font-size: 30px;
+
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+
+  .vosk .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    right: 50%;
+    margin-left: 0px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+
+  .vosk .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+
+
+  .vosk:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }

@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+ <div class="vosk">
+        <label>&#10071</label>
+        <span class = "tooltiptext">Сообщение! О том что Н А Д О !!!!</span>
+    </div>
+
+<div class="aft">
+  {% if form.errors %}
+    <p>Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте еще раз.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>У вашего аккаунта нет доступа к этой странице. Продолжать,
+      пожалуйста, войдите с учетной записью, которая имеет доступ.</p>
+    {% else %}
+      <p>Пожалуйста, войдите, чтобы увидеть эту страницу.</p>
+    {% endif %}
+  {% endif %}
+
+<form class="form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+  </br>
+  </br>
+
+    <input type="submit" value="login">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+</div>
+
+{% endblock %}
