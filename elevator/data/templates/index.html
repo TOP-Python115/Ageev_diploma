@@ -9,19 +9,21 @@
 
     <div class="bloc">
         <h1>Добавить зерно</h1>
-        <button class="buto">Добавить</button>
+        <button onClick="javascript:window.open('{% url 'wheat-create' %}', '_blank');" type="button" id="but" class="buto">Добавить</button>
     </div>
     <div class="bloc">
     <h1>Сколько пришло<br> сегодня:</h1>
-    <button class="buto">Узнать</button>
+    <button onClick="javascript:window.open('{% url 'open-today' %}', '_blank');" type="button" class="buto">Узнать</button>
     </div>
     <div class="bloc">
         <h1>Сколько пришло <br> за неделю:</h1>
-        <button class="buto">Узнать</button>
+        <button onClick="javascript:window.open('{% url 'open-week' %}', '_blank');" type="button" class="buto">Узнать</button>
         </div>
     <div class="bloc">
         <h1>Сколько пришло<br> за месяц:</h1>
-        <button class="buto">Узнать</button>
+        <button onClick="javascript:window.open('{% url 'open-month' %}', '_blank');" type="button" class="buto">Узнать</button>
     </div>
 </div>
+
+
 {% endblock %}

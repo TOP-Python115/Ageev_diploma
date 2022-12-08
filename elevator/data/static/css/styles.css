@@ -127,3 +127,8 @@ table {
     visibility: visible;
     opacity: 1;
   }
+
+  .p {
+  font-size:35px;
+  font-weight:700;
+  }

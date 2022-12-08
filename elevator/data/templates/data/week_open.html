@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+<div class="body">
+<div class="bloc">
+    <h1>Пришло зерна<br>за неделю:</h1>
+    {% if today == None %}
+        <p class="p">0 Тонн зерна</p>
+    {% else %}
+        <p class="p">{{week}} Тонн зерна</p>
+</div>
+</div>
+{% endif %}
+{% endblock %}
