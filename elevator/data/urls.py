@@ -1,8 +1,9 @@
 from django.urls import path
+
 from . import views
 
-urlpatterns = [
 
+urlpatterns = [
     path('', views.index, name='index'),
     path('wheat/create/', views.WheatCreate.as_view(), name='wheat-create'),
     path('wheat/open/today/', views.today_open, name='open-today'),

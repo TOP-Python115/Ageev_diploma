@@ -1,19 +1,15 @@
-
-from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.http import HttpResponse, request
-from django.shortcuts import render
-from .models import Wheat
-from datetime import datetime
-from django.db.models import Sum
-
-from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy
-
-from .models import Wheat
+# ИСПОЛЬЗОВАТЬ: импорты эффективно визуально разбивать на три категории: внешние пакеты, стандартная библиотека, локальные — при этом внутри каждой категории осуществлять сортировку по алфавиту
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.models import Group
+from django.db.models import Sum
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
 
+from datetime import datetime
+
+from .models import Wheat
 
 
 @login_required
@@ -26,6 +22,8 @@ def index(request):
         'query_set': query_set
     }
     return render(request, 'index.html',context=context)
+
+
 @login_required
 def today_open(request):
     today = Wheat.objects.filter(date=datetime.now()).aggregate(Sum('weight'))
@@ -43,6 +41,8 @@ def today_open(request):
         'query_set': query_set,
         }
     return render(request, 'data/today_open.html', context=context)
+
+
 @login_required
 def week_open(request):
     day = datetime.now()
@@ -63,6 +63,8 @@ def week_open(request):
 
     }
     return render(request, 'data/week_open.html', context=context)
+
+
 @login_required
 def month_open(request):
     day = datetime.now()
@@ -81,12 +83,10 @@ def month_open(request):
     }
     return render(request, 'data/month_open.html', context=context)
 
+
 class WheatCreate(PermissionRequiredMixin, CreateView):
     permission_required = 'data.add_wheat'
     model = Wheat
     fields = ['weight']
     success_url = reverse_lazy('index')
-
-
-
 
