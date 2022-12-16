@@ -4,6 +4,7 @@
 {% block content %}
 <div class="body">
     <div class="bloc">
+<!--    КОММЕНТАРИЙ: и, конечно, нежелательно перемещать проверку аутентификации в шаблон -->
         {% if query_set == "weigher_foreman" or "elevator_master" or "gen_director" %}
             <h1>Пришло зерна<br> сегодня:</h1>
             <p class="p">{{today}} Тонн зерна</p>
